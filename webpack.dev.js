@@ -1,14 +1,16 @@
 const merge = require("webpack-merge")
 const common = require("./webpack.common.js")
+const webpack = require("webpack")
 const WebpackBundleAnalizerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin
 
 module.exports = merge(common, {
     mode: "development",
     devtool: "inline-source-map",
     devServer: {
-        contentBase: "./dist"
+        contentBase: "./dist",
+        hot: true
     },
     plugins: [
-        // new WebpackBundleAnalizerPlugin()
+        new webpack.HotModuleReplacementPlugin()
     ]
 })

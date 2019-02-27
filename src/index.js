@@ -1,25 +1,12 @@
-import _ from 'lodash'
-import './style.css'
-import MyImage from './image.jpg'
-import console, { cube } from './console'
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App.js";
 
-function component(){
-    console();
-    console();
-    cube(2)
-    localStorage.setItem("8080", "this is items for local 8080")
-    const div = document.createElement('div');
+ReactDOM.render(<App />, document.getElementById("root"));
 
-    div.innerHTML = ['Hello', 'webpack'].join(" ")
-    div.classList.add('hello')
-
-    const image = new Image();
-    image.src = MyImage
-    image.classList.add('my-photo')
-
-    div.appendChild(image)
-
-    return div
+if(module.hot){
+    module.hot.accept('./App.js', () => {
+        const NextApp = require("./App.js").default
+        ReactDOM.render(<NextApp/>, document.getElementById("root"))
+    })
 }
-
-document.body.appendChild(component())
