@@ -14,15 +14,19 @@
     "html-webpack-plugin": "^3.2.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.5",
+    "webpack-bundle-analyzer": "^3.0.4",
     "webpack-cli": "^3.2.3",
     "webpack-dev-middleware": "^3.6.0",
-    "webpack-dev-server": "^3.2.0"
+    "webpack-dev-server": "^3.2.0",
+    "webpack-merge": "^4.2.1"
   },
+  "sideEffects": false,
   "scripts": {
     "test": "test ",
-    "start": "webpack-dev-server --open ",
+    "start": "webpack-dev-server --open --config webpack.dev.js",
     "watch": "webpack --watch",
-    "server": "node server.js"
+    "server": "node server.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "author": "Ivan Tsymbalenko",
   "license": "ISC"

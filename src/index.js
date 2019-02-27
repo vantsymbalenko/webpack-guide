@@ -1,15 +1,16 @@
 import _ from 'lodash'
 import './style.css'
 import MyImage from './image.jpg'
-import console from './console'
+import console, { cube } from './console'
 
 function component(){
     console();
     console();
+    cube(2)
     localStorage.setItem("8080", "this is items for local 8080")
     const div = document.createElement('div');
 
-    div.innerHTML = _.join(['Hello', 'webpack'], ' ')
+    div.innerHTML = ['Hello', 'webpack'].join(" ")
     div.classList.add('hello')
 
     const image = new Image();
